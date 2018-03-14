@@ -20,8 +20,6 @@ public class Fila implements Serializable{
 	@Min(value=1, message="A fila não pode ser vazia")
 	private int id;
 	
-	@NotNull
-	@Size(min=5, max=45, message="O nome da fila deve estar entre 5 e 45 caracteres.")
 	private String nome;
 	
 	public int getId() {

@@ -27,13 +27,13 @@
                     <label>Descrição: </label>
                     <form:errors path="chamado.descricao" cssStyle="color:red"/><br>
                     <input class="form-control" placeholder="Descrição" name="descricao"/>
-                </div>
+                </div>	
         	</div>
             <div class="row">
                 <div class="form-group col-md-4">
                     <label for="fila">Escolha a Fila:</label>
                     <form:errors path="fila.id" cssStyle="color:red"/><br>
-                    <select class="form-control" name="id">
+                    <select class="form-control" name="fila.id">
                         <option value="0"></option>
                         <c:forEach var="fila" items="${filas}">
                             <option value="${fila.id}">${fila.nome}</option>

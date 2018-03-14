@@ -23,7 +23,9 @@
     <div id="main" class="container">
         <h3 class="page-header">Chamado criado com sucesso!</h3>
         <div class="row">
-        	Chamado salvo com o número ${chamado.id}
+        	<div class="col-md-12">
+        		Chamado salvo com o número ${chamado.id}
+        	</div>
         </div>
     </div>
     <script src="js/jquery.min.js"></script>

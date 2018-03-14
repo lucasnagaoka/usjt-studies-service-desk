@@ -21,8 +21,6 @@ public class Chamado implements Serializable {
 	public static final String ABERTO = "aberto";
 	public static final String FECHADO = "fechado";
 
-	@NotNull(message="O chamado não pode ser vazio")
-	@Min(value=1, message="O chamado não pode ser vazio")
 	private int id;
 	
 	@NotNull
