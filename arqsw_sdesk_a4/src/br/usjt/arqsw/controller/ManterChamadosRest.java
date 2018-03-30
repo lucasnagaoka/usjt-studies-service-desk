@@ -41,15 +41,6 @@ public class ManterChamadosRest {
 		this.chamadoService = chamadoService;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
-	//@RequestMapping("index")
-	public String inicio() {
-		return "index";
-	}
-
 	private List<Fila> listarFilas() throws IOException {
 		return filaService.listarFilas();
 	}
