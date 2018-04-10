@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+/*
+ * style.css
+ */
+body {
+  padding-top: 50px;
+}
+
+.easy-format {
+	display: block;
+	margin: 0 auto;
+}
+
+.easy-format p {
+	font-size: 14px;
+}
