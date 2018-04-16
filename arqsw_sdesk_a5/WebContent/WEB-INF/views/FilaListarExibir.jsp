@@ -12,7 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Chamado fechado</title>
+<title>Listar Filas Exibir</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 </head>
@@ -22,26 +22,27 @@
 	<c:import url="Menu.jsp" />
 	<!-- Container Principal -->
 	<div id="main" class="container">		
-		<h3 class="page-header">Chamado fechado com sucesso</h3>
+		<h3 class="page-header">Filas</h3>
 
 		<table class="table table-striped">
 			<tr>
+				<th>ID</th>
 				<th>Nome</th>
-				<th>Descrição</th>
-				<th>Abertura</th>
-				<th>Fechamento</th>
-				<th>Status</th>
-				<th>Tempo</th>
+				<th>Imagem</th>
+				<th></th>
+				<th></th>
+				<th></th>
 			</tr>
+			<c:forEach var="fila" items="${filas}">
 				<tr>			
-					<td>${chamado.id}</td>
-					<td>${chamado.descricao}</td>
-					<td><fmt:formatDate dateStyle = "short" timeStyle = "short" value = "${chamado.dataAbertura}" /></td>
-					<td><fmt:formatDate dateStyle = "short" timeStyle = "short" value = "${chamado.dataFechamento}" /></td>
-					<td>${chamado.status}</td>
-					<jsp:useBean id="now" class="java.util.Date"/>  
-		        	<td><fmt:formatNumber value="${not empty chamado.dataFechamento ? (chamado.dataFechamento.time - chamado.dataAbertura.time)/86400000 : (now.time - chamado.dataAbertura.time)/86400000}" maxFractionDigits="0"/> dias</td>
+					<td>${fila.id}</td>
+					<td>${fila.nome}</td>
+					<td><img src="img/${fila.caminhoFigura}" alt="" height="48" width="48" class="img-circle"></td>
+					<td><a href="<c:url value='/detalhes_fila?id=${fila.id }'/>">Detalhes</a></td>
+					<td><a href="<c:url value='/alterar_fila?id=${fila.id }'/>">Alterar</a></td>
+		        	<td><a href="<c:url value='/excluir_fila?id=${fila.id }'/>" style="color: red">Remover</a></td>
 				</tr>
+			</c:forEach>
 		</table>
 	</div>
 	<script src="js/jquery.min.js"></script>

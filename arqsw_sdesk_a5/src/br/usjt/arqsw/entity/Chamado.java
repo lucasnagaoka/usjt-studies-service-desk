@@ -44,6 +44,9 @@ public class Chamado implements Serializable {
 	@Column(name = "DT_FECHAMENTO")
 	private Date dataFechamento;
 	
+	@Column(name = "ID_RH")
+	private int id_rh;
+	
 	@Valid
 	@JoinColumn(name = "ID_FILA", referencedColumnName = "ID_FILA")
     @ManyToOne
@@ -97,9 +100,17 @@ public class Chamado implements Serializable {
 		this.fila = fila;
 	}
 	
+	public int getId_rh() {
+		return id_rh;
+	}
+
+	public void setId_rh(int id_rh) {
+		this.id_rh = id_rh;
+	}
+	
 	@Override
 	public String toString() {
 		return "Chamado [id=" + id + ", descricao=" + descricao + ", status=" + status + ", dataAbertura="
 				+ dataAbertura + ", dataFechamento=" + dataFechamento + ", fila=" + fila + "]";
-	}
+	}	
 }

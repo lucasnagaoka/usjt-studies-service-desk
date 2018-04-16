@@ -30,4 +30,18 @@ public class FilaDAO {
 		return manager.find(Fila.class, id);
 	}
 
+	public Fila salvar(Fila fila) throws IOException {
+		manager.persist(fila);
+		return this.carregar(fila.getId());
+	}
+
+	public boolean excluir(Fila fila) {
+		manager.remove(fila);
+		return true;
+	}
+
+	public Fila atualizar(Fila fila) throws IOException {
+		manager.merge(fila);
+		return this.carregar(fila.getId());
+	}
 }

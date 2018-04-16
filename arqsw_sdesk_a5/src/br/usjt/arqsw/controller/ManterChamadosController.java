@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import br.usjt.arqsw.clienteRest.ClienteRest;
 import br.usjt.arqsw.entity.Chamado;
 import br.usjt.arqsw.entity.Fila;
 import br.usjt.arqsw.service.ChamadoService;
@@ -29,11 +30,13 @@ import br.usjt.arqsw.service.FilaService;
 public class ManterChamadosController {
 	private FilaService filaService;
 	private ChamadoService chamadoService;
+	private ClienteRest clienteRest;
 
 	@Autowired
-	public ManterChamadosController(FilaService filaService, ChamadoService chamadoService) {
+	public ManterChamadosController(FilaService filaService, ChamadoService chamadoService, ClienteRest clienteRest) {
 		this.filaService = filaService;
 		this.chamadoService = chamadoService;
+		this.clienteRest = clienteRest;
 	}
 
 	/**
@@ -77,6 +80,7 @@ public class ManterChamadosController {
 			}
 			fila = filaService.carregar(fila.getId());
 			model.addAttribute("fila", fila);
+			model.addAttribute("clientes", clienteRest.listar());
 
 			List<Chamado> chamados = new ArrayList<Chamado>();
 
@@ -95,13 +99,15 @@ public class ManterChamadosController {
 	public String criarChamado(Model model) {
 		try {
 			model.addAttribute("filas", listarFilas());
+			model.addAttribute("clientes", clienteRest.listar());
+			// model.addAttribute("clientes", chamadoService.consultarClientes());
 			return "ChamadoCriar";
 		} catch (IOException e) {
 			e.printStackTrace();
 			return "Erro";
 		}
 	}
-	
+
 	@RequestMapping("/salvar")
 	public String salvarChamado(@Valid Chamado chamado, BindingResult result, Model model) {
 		try {
@@ -119,8 +125,8 @@ public class ManterChamadosController {
 			return "Erro";
 		}
 	}
-	
-	@RequestMapping("/fechar_chamado/{id}")
+
+	@RequestMapping("/fechar_chamado")
 	public String fecharChamado(@RequestParam(value = "id") int id, Model model) {
 		try {
 			model.addAttribute("chamado", chamadoService.fecharChamado(id));

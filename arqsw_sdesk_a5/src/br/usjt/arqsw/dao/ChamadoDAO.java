@@ -32,12 +32,12 @@ public class ChamadoDAO {
 		return manager.find(Chamado.class, id);
 	}
 
-	public Chamado criarChamado(Chamado chamado) throws IOException {
+	public Chamado criar(Chamado chamado) throws IOException {
 		manager.persist(chamado);
 		return obterUltimoChamado();
 	}
 	
-	public Chamado fecharChamado(Chamado chamado) throws IOException {
+	public Chamado fechar(Chamado chamado) throws IOException {
 		manager.persist(chamado);
 		return buscarPorId(chamado.getId());
 	}

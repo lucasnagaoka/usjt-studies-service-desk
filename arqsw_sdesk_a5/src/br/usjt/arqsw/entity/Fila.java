@@ -30,7 +30,7 @@ public class Fila implements Serializable {
 
 	@Column(name = "NM_FILA")
 	private String nome;
-
+	
 	@Column(name = "CAMINHO_FIGURA")
 	private String caminhoFigura;
 

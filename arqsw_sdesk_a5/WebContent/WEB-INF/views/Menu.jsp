@@ -14,6 +14,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="listar_filas_exibir">Consultar Chamados</a></li>
                     <li><a href="criar_chamado">Criar Chamados</a></li>
+                    <li><a href="listar_filas">Consultar Filas</a></li>
+                    <li><a href="criar_fila">Criar Filas</a></li>
                 </ul>
             </div>
         </div>

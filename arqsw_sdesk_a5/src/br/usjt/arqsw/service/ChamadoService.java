@@ -35,21 +35,36 @@ public class ChamadoService {
 		chamado.setDataAbertura(new Date());
 		chamado.setDataFechamento(null);
 
-		Chamado chamadoSalvo = dao.criarChamado(chamado);
+		Chamado chamadoSalvo = dao.criar(chamado);
 
 		return chamadoSalvo;
 	}
 
 	public Chamado fecharChamado(int id) throws IOException {
 		Chamado chamado = dao.buscarPorId(id);
-		
+
 		chamado.setStatus(Chamado.FECHADO);
 		chamado.setDataFechamento(new Date());
-		
-		Chamado chamadoFechado = dao.fecharChamado(chamado);
-		
-		return chamadoFechado;
-		
-	}
 
+		Chamado chamadoFechado = dao.fechar(chamado);
+
+		return chamadoFechado;
+
+	}
+//
+//	public PaginaCliente consultarClientes() {
+//		try {
+//			URL jsonUrl = new URL("https://reqres.in/api/users?per_page=15&page=1");
+//			ObjectMapper mapper = new ObjectMapper();
+//			// Cliente cliente = mapper.readValue(jsonUrl, Cliente.class);
+//
+//			PaginaCliente paginaCliente = mapper.readValue(jsonUrl, PaginaCliente.class);
+//
+//			return paginaCliente;
+//
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		return null;
+//	}
 }

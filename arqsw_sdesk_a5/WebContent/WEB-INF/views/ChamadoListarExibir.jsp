@@ -26,16 +26,20 @@
 
 		<table class="table table-striped">
 			<tr>
+				<th></th>
 				<th>Nome</th>
 				<th>Descrição</th>
 				<th>Abertura</th>
 				<th>Fechamento</th>
 				<th>Status</th>
 				<th>Tempo</th>
+				<th>Cliente</th>
 				<th></th>
 			</tr>
 			<c:forEach var="chamado" items="${chamados}">
-				<tr>			
+			<!-- TODO: pegar idRH e obter avatar, nome e sobrenome do cliente para exibir -->
+				<tr>
+					<td><img src="${cliente.avatar}" alt="" /></td>			
 					<td>${chamado.id}</td>
 					<td>${chamado.descricao}</td>
 					<td><fmt:formatDate dateStyle = "short" timeStyle = "short" value = "${chamado.dataAbertura}" /></td>
@@ -50,7 +54,12 @@
 					<td>${chamado.status}</td>
 					<jsp:useBean id="now" class="java.util.Date"/>  
 		        	<td><fmt:formatNumber value="${not empty chamado.dataFechamento ? (chamado.dataFechamento.time - chamado.dataAbertura.time)/86400000 : (now.time - chamado.dataAbertura.time)/86400000}" maxFractionDigits="0"/> dias</td>
-		        	<td><a href="fechar_chamado/${chamado.id}" style="color="red">Remover</a></td>
+		        	<td>${cliente.first_name} ${cliente.last_name}</td>
+		        	<td>
+		        		<c:if test="${chamado.status == 'aberto' }">
+		        			<a href="<c:url value='/fechar_chamado?id=${chamado.id }'/>" style="color: red">Remover</a>
+		        		</c:if>
+		        	</td>
 				</tr>
 			</c:forEach>
 		</table>
