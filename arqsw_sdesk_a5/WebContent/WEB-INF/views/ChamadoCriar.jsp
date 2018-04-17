@@ -44,8 +44,8 @@
             <div class="row">
                 <div class="form-group col-md-4">
                     <label for="cliente">Escolha o Cliente:</label>
-                    <form:errors path="chamado.idRH" cssStyle="color:red"/><br>
-                    <select class="form-control" name="chamado.idRH">
+                    <form:errors path="chamado.idRh" cssStyle="color:red"/><br>
+                    <select class="form-control" name="chamado.idRh">
                         <option value="0">Selecione</option>
                         <c:forEach var="cliente" items="${clientes}">
                             <option value="${cliente.id}">${cliente.first_name} ${cliente.last_name}</option>

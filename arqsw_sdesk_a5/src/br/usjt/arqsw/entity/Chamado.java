@@ -19,37 +19,38 @@ import javax.validation.constraints.Size;
  *
  */
 
-@Entity @Table(name="CHAMADO")
+@Entity
+@Table(name = "CHAMADO")
 public class Chamado implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	public static final String ABERTO = "aberto";
 	public static final String FECHADO = "fechado";
 
 	@Id
 	@Column(name = "ID_CHAMADO")
 	private int id;
-	
+
 	@NotNull
-	@Size(min=10, max=100, message="O chamado precisa ter uma descrição.")
+	@Size(min = 10, max = 100, message = "O chamado precisa ter uma descrição.")
 	@Column(name = "DESCRICAO")
 	private String descricao;
-	
+
 	@Column(name = "STATUS")
-	private String status;	
-	
+	private String status;
+
 	@Column(name = "DT_ABERTURA")
 	private Date dataAbertura;
-	
+
 	@Column(name = "DT_FECHAMENTO")
 	private Date dataFechamento;
-	
+
 	@Column(name = "ID_RH")
-	private int id_rh;
-	
+	private int idRh;
+
 	@Valid
 	@JoinColumn(name = "ID_FILA", referencedColumnName = "ID_FILA")
-    @ManyToOne
+	@ManyToOne
 	private Fila fila;
 
 	public int getId() {
@@ -99,18 +100,18 @@ public class Chamado implements Serializable {
 	public void setFila(Fila fila) {
 		this.fila = fila;
 	}
-	
-	public int getId_rh() {
-		return id_rh;
+
+	public int getIdRh() {
+		return idRh;
 	}
 
-	public void setId_rh(int id_rh) {
-		this.id_rh = id_rh;
+	public void setIdRh(int idRh) {
+		this.idRh = idRh;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Chamado [id=" + id + ", descricao=" + descricao + ", status=" + status + ", dataAbertura="
-				+ dataAbertura + ", dataFechamento=" + dataFechamento + ", fila=" + fila + "]";
+				+ dataAbertura + ", dataFechamento=" + dataFechamento + ", idRh=" + idRh + ", fila=" + fila + "]";
 	}	
 }
