@@ -5,6 +5,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * 
+ * @author Lucas Nagaoka | RA: 81513916
+ *
+ */
 enum Suit {
 	SPADES, HEARTS, CLUBS, DIAMONDS
 }

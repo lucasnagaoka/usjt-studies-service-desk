@@ -1,5 +1,10 @@
 package singleton;
 
+/**
+ * 
+ * @author Lucas Nagaoka | RA: 81513916
+ *
+ */
 class Incremental {
 	private static Incremental singletonInstance;
 	private static int count = 0;

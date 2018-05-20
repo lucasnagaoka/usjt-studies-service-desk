@@ -1,1 +1,0 @@
-package logfactory;public class EscrevedorLogConsole extends EscrevedorLog {	protected FerramentaLog criarFerramentaLog() {		return new FerramentaLogConsole();	}}

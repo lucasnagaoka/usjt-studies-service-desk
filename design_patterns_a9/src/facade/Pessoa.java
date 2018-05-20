@@ -2,6 +2,11 @@ package facade;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * @author Lucas Nagaoka | RA: 81513916
+ *
+ */
 public class Pessoa implements Serializable {
 	/**
 	 * 

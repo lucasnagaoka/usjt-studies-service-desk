@@ -2,6 +2,11 @@ package adapter.map;
 
 import java.util.HashMap;
 
+/**
+ * 
+ * @author Lucas Nagaoka | RA: 81513916
+ *
+ */
 public class NewMapAdapter extends HashMap<Object, Object> {
 
 	private static final long serialVersionUID = 1L;

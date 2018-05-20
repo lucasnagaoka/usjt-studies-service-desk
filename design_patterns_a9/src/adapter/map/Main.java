@@ -2,6 +2,11 @@ package adapter.map;
 
 import java.util.Map;
 
+/**
+ * 
+ * @author Lucas Nagaoka | RA: 81513916
+ *
+ */
 public class Main {
 
 	public static void main(String[] args) {

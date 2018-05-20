@@ -1,0 +1,1 @@
+package logfactory;/** *  * @author Lucas Nagaoka | RA: 81513916 * */public class EscrevedorLogArquivo extends EscrevedorLog {	protected FerramentaLog criarFerramentaLog() {		return new FerramentaLogArquivo();	}}

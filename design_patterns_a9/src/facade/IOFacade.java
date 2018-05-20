@@ -7,6 +7,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
+/**
+ * 
+ * @author Lucas Nagaoka | RA: 81513916
+ *
+ */
 public class IOFacade {
 	private String str;
 	private FileInputStream inStream;

@@ -1,0 +1,1 @@
+package logfactory;import java.util.Date;/** *  * @author Lucas Nagaoka | RA: 81513916 * */public class FerramentaLogConsole extends FerramentaLog {	public void registrarLog(String mensagem) {		System.out.println(dateFormat.format(new Date(System.currentTimeMillis())) + mensagem);	}}
